@@ -14,11 +14,13 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flex:1,
         elevation: 8,
-        backgroundColor: Color.primary,
+        backgroundColor: Color.accent2,
         borderRadius: 10,
+        borderStyle: 'solid',
+        borderColor: Color.accent3,
+        borderWidth: 2,
         marginVertical: 50,
         paddingHorizontal: 12,
-        width: '80%',
         alignItems: 'center',
         justifyContent: 'center'
     },

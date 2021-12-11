@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.accent1,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignContent: 'center'
   },
   image: {
     flex: 1,
