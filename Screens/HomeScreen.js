@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import MainScreenButton from '../buttons/MainScreenButton';
+import Colors from '../constants/Color';
 
 const HomeScreen = props => {
     return (
@@ -20,14 +21,14 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     profile: {
-        backgroundColor: 'green',
+        backgroundColor: Colors.accent2,
         paddingHorizontal: 100
     },
     viewClimbs: {
-        backgroundColor: 'blue'
+        backgroundColor: Colors.accent2
     },
     logClimbs: {
-        backgroundColor: 'purple'
+        backgroundColor: Colors.accent2
     }
 });
 

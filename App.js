@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import HomeScreen from './Screens/HomeScreen';
 import MainHeader from './components/MainHeader';
+import Colors from './constants/Color';
+
 
 export default function App() {
   return (
@@ -15,8 +17,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'lightgreen',
+    backgroundColor: Colors.accent1,
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center"
+  },
 });
