@@ -12,12 +12,15 @@ const MainScreenButton = props => {
 
 const styles = StyleSheet.create({
     buttonContainer: {
+        flex:1,
         elevation: 8,
         backgroundColor: Color.primary,
         borderRadius: 10,
-        paddingVertical: 10,
+        marginVertical: 50,
         paddingHorizontal: 12,
-        width: '80%'
+        width: '80%',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     buttonText: {
         fontSize: 18,
