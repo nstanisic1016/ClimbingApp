@@ -1,11 +1,12 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import Color from '../constants/Color';
+import Texts from '../constants/Text';
 
 const MainScreenButton = props => {
     return (
         <TouchableOpacity onpress={props.press} style={{...styles.buttonContainer, ...props.style}}>
-            <Text>{props.title}</Text>
+            <Text style= {Texts.button} >{props.title}</Text>
         </TouchableOpacity>
     );
 };
@@ -22,12 +23,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    buttonText: {
-        fontSize: 18,
-        color: "#fff",
-        fontWeight: "bold",
-        alignSelf: "center",
-    }
+
 });
 
 export default MainScreenButton;
