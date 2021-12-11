@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import HomeScreen from './Screens/HomeScreen';
 import MainHeader from './components/MainHeader';
 import Colors from './constants/Color';
 
+StatusBar. setBarStyle('light-content', true);
 
 export default function App() {
   return (
