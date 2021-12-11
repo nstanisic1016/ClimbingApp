@@ -18,13 +18,13 @@ const HomeScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
+        flexDirection: 'row',
         padding: 10,
         justifyContent: 'space-evenly',
         alignItems: 'center'
     },
     profile: {
         backgroundColor: Colors.accent2,
-        paddingHorizontal: 100
     },
     viewClimbs: {
         backgroundColor: Colors.accent2
