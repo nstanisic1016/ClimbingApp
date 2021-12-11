@@ -7,9 +7,11 @@ const HomeScreen = props => {
     return (
         <View style={styles.screen}>
             <ImageBackground source = {require('../assets/Mount.png')} resizeMode="cover" style={styles.image}>
-            <MainScreenButton style={styles.profile} title="Profile"/>
-            <MainScreenButton style={styles.viewClimbs} title="View Climbs"/>
-            <MainScreenButton style={styles.logClimbs} title="Log Climbs"/>
+            <View style={styles.buttons}>
+                <MainScreenButton title="Profile"/>
+                <MainScreenButton title="View Climbs"/>
+                <MainScreenButton title="Log Climbs"/>
+            </View>
             </ImageBackground>
         </View>
     );
@@ -18,19 +20,14 @@ const HomeScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        flexDirection: 'row',
-        padding: 10,
         justifyContent: 'space-evenly',
-        alignItems: 'center'
+        alignContent: 'center'
     },
-    profile: {
-        backgroundColor: Colors.accent2,
-    },
-    viewClimbs: {
-        backgroundColor: Colors.accent2
-    },
-    logClimbs: {
-        backgroundColor: Colors.accent2
+    buttons: {
+        flex: 1,
+        justifyContent: 'space-evenly',
+        alignContent: 'center',
+        padding: 20
     },
     image: {
         flex: 1,
