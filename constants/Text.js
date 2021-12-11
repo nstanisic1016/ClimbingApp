@@ -9,7 +9,7 @@ export default {
     button: {
         fontSize: 18,
         color: Colors.primary,
-        fontWeight: "bold",
+        fontWeight: "normal",
         alignSelf: "center",
     }
 }
