@@ -1,34 +1,8 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
-import MainScreenButton from '../buttons/MainScreenButton';
+import { StyleSheet, Text, View } from 'react-native';
 
-const HomeScreen = props => {
-    return (
-        <View style={styles.screen}>
-            <MainScreenButton style={styles.profile} title="Profile"/>
-            <MainScreenButton style={styles.viewClimbs} title="View Climbs"/>
-            <MainScreenButton style={styles.logClimbs} title="Log Climbs"/>
-        </View>
-    );
-};
+const ProfileScreen = props => {};
 
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        padding: 10,
-        justifyContent: 'space-evenly',
-        alignItems: 'center'
-    },
-    profile: {
-        backgroundColor: 'green',
-        paddingHorizontal: 100
-    },
-    viewClimbs: {
-        backgroundColor: 'blue'
-    },
-    logClimbs: {
-        backgroundColor: 'purple'
-    }
-});
+const styles = StyleSheet.create({});
 
-export default HomeScreen;
+export default ProfileScreen;
