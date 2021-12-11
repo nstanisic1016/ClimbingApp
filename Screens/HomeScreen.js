@@ -7,7 +7,7 @@ const HomeScreen = props => {
         <View style={styles.screen}>
             <MainScreenButton style={styles.profile} title="Profile"/>
             <MainScreenButton style={styles.viewClimbs} title="View Climbs"/>
-            <MainScreenButton style={styles.logClimbs} title="Log Climbs"/>
+            <MainScreenButton style={styles.logClimbs} title="Log poops"/>
         </View>
     );
 };
