@@ -8,7 +8,7 @@ import Colors from './constants/Color';
 export default function App() {
   return (
     <View style={styles.container}>
-      <MainHeader title={"header"}/>
+      <MainHeader title={"Climbing Tracker"}/>
       <HomeScreen />
     </View>
   );
