@@ -23,7 +23,12 @@ const styles = StyleSheet.create({
         marginVertical: 50,
         paddingHorizontal: 12,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 6,
+        elevation: 5,
+        shadowOpacity: 0.86,  
     },
 
 });
