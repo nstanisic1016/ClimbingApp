@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import Color from '../constants/Color';
+import Colors from '../constants/Color';
 
 const LogScreen = props => {
     return (
