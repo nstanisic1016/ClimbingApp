@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ProfileScreen from './Screens/ProfileScreen';
 import ViewClimbScreen from './Screens/ViewClimbScreen';
+import HomeHeader from './components/HomeHeader';
 
 StatusBar. setBarStyle('light-content', true);
  
@@ -23,7 +24,7 @@ const Stack = createStackNavigator();
           <Stack.Screen 
             name="Home Screen"
             component={HomeScreen}
-            options={{header: () => <MainHeader title={"Climbing Home"}/>}}
+            options={{header: () => <HomeHeader title={"Climbing Home"}/>}}
           />
           <Stack.Screen
             name="Profile Screen"
