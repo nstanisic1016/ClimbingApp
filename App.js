@@ -18,24 +18,27 @@ const Stack = createStackNavigator();
 
   return (
     <View style={styles.container}>
-      <MainHeader title={"Climbing Tracker"}/>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen 
             name="Home Screen"
             component={HomeScreen}
+            options={{header: () => <MainHeader title={"Climbing Home"}/>}}
           />
           <Stack.Screen
             name="Profile Screen"
             component={ProfileScreen}
+            options={{header: () => <MainHeader title={"Profile Screen Test"}/>}}
           />
           <Stack.Screen
             name="View Screen"
             component={ViewClimbScreen}
+            options={{header: () => <MainHeader title={"Climbing History"}/>}}
           />
           <Stack.Screen
             name="Log Screen"
             component={LogScreen}
+            options={{header: () => <MainHeader title={"Log Climb"}/>}}
           />
         </Stack.Navigator>
       </NavigationContainer>
