@@ -5,7 +5,12 @@ import Color from '../constants/Color';
 const LogScreen = props => {
     return (
         <View>
-            <TextInput  {...props} style={{...styles.input, ...props.style }}/>
+            <Text> Date </Text>
+            <Text> Tick </Text>
+            <Text> Type </Text>
+            <Text> Style </Text>
+            <Text> Where </Text>
+            <Text> Notes </Text>
         </View>
     );
 };
