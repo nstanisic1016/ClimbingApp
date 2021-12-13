@@ -1,8 +1,13 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
+import Color from '../constants/Color';
 
 const LogScreen = props => {
-    return <TextInput  {...props} style={{...styles.input, ...props.style }}/>
+    return (
+        <View>
+            <TextInput  {...props} style={{...styles.input, ...props.style }}/>
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({

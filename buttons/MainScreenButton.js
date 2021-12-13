@@ -5,7 +5,7 @@ import Texts from '../constants/Text';
 
 const MainScreenButton = props => {
     return (
-        <TouchableOpacity onpress={props.press} style={{...styles.buttonContainer, ...props.style}}>
+        <TouchableOpacity onPress={props.onPress} style={{...styles.buttonContainer, ...props.style}}>
                 <Text style= {Texts.button} >{props.title}</Text>
         </TouchableOpacity>
     );
