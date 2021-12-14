@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Color from '../constants/Color';
 import Texts from '../constants/Text';
-import {Slider} from '@miblanchard/react-native-slider';
+
 
 const LogScreen = props => {
     return (
@@ -14,11 +14,7 @@ const LogScreen = props => {
                 <Text style= {Texts.average, styles.headerLabels}> Tick </Text>
                 <Text style= {Texts.average, styles.headerLabels}> Type </Text>
                 <Text style= {Texts.average, styles.headerLabels}> Grade </Text>
-                    <Slider 
-                        minimumValue= {4} 
-                        maximumValue= {15}
-                        step={1}
-                        value = {10}/>
+                    
                 <Text style= {Texts.average, styles.headerLabels}> Style </Text>
                 <Text style= {Texts.average, styles.headerLabels}> Where </Text>
                 <Text style= {Texts.average, styles.headerLabels}> Notes </Text>

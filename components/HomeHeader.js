@@ -5,12 +5,6 @@ import text from '../constants/Text';
 
 
 const HomeHeader = props => {
-
-    const backbuttonText = () => {
-        return (
-            <Text style={{color: Color.accent2, fontWeight: 'bold'}}> Back</Text> 
-        );
-    }
     
     return (
         <View style={styles.header}>
