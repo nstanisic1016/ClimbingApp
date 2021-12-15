@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderColor: Color.accent3,
         borderWidth: 2,
-        marginVertical: 50,
         paddingHorizontal: 12,
         alignItems: 'center',
         justifyContent: 'center',

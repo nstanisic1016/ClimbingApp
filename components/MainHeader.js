@@ -2,10 +2,8 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Color from '../constants/Color';
 import text from '../constants/Text';
-import { Button, colors } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { color } from 'react-native-elements/dist/helpers';
 import { useNavigation } from '@react-navigation/native';
 
 const MainHeader = props => {

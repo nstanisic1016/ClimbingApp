@@ -1,0 +1,8 @@
+install picker
+    npm install @react-native-picker/picker --save
+    npx pod-install
+
+Setup project for typescript usage
+    npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+    add tsconfig.json file (should be added via github)
+    add jest.config.js

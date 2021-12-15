@@ -15,7 +15,23 @@ StatusBar. setBarStyle('light-content', true);
 
 export default function App() {
 const Stack = createStackNavigator();
+const [usersBoulders, setUsersBoulders] = useState([]);
 
+
+const addBoulderHandler = boulderList => {
+  setUsersBoulders(currentBoulderList => [
+    ...currentBoulderList,
+    { id: Math.random().toString(), value: boulderList}
+  ],
+  );
+  console.log({boulderList})
+}
+
+const logScreenShell = () => {
+  return (
+  <LogScreen onAddBoulder={addBoulderHandler}/>
+  );
+}
 
   return (
     <View style={styles.container}>
@@ -38,8 +54,9 @@ const Stack = createStackNavigator();
           />
           <Stack.Screen
             name="Log Screen"
-            component={LogScreen}
+            component={logScreenShell}
             options={{header: () => <MainHeader title={"Log Climb"}/>}}
+            onAddBoulder={addBoulderHandler}
           />
         </Stack.Navigator>
       </NavigationContainer>

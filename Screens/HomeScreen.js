@@ -13,9 +13,9 @@ const HomeScreen = props => {
         <View style={styles.screen}>
             <ImageBackground source = {require('../assets/Mount.png')} resizeMode="cover" style={styles.image}>
             <View style={styles.buttons}>
-                <MainScreenButton title="Profile" onPress={() => navigation.navigate("Profile Screen")}/>
-                <MainScreenButton title="View Climbs" onPress={() => navigation.navigate("View Screen")}/>
-                <MainScreenButton title="Log Climbs" onPress={() => navigation.navigate("Log Screen")}/>
+                <MainScreenButton title="Profile" style={styles.addMargin} onPress={() => navigation.navigate("Profile Screen")}/>
+                <MainScreenButton title="View Climbs" style={styles.addMargin} onPress={() => navigation.navigate("View Screen")}/>
+                <MainScreenButton title="Log Climbs" style={styles.addMargin} onPress={() => navigation.navigate("Log Screen")}/>
             </View>
             </ImageBackground>
         </View>
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-evenly',
         alignContent: 'center'
+    },
+    addMargin: {
+        marginVertical: 50
     },
     buttons: {
         flex: 1,
