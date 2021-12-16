@@ -1,11 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 const ViewClimbScreen = props => {
     return (
-        <View>
-            <Text> This is the view climb Screen </Text>
-        </View>
+    <View>
+        <FlatList 
+        keyExtractor={(item, index) => item.id}
+        data={props.boulderData} 
+        renderItem={itemData => 
+            <View>
+                <Text>{itemData.item.value}</Text>
+            </View>
+        }
+        />
+    </View>
     );
 };
 

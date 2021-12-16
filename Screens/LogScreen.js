@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Picker, View, Text, TouchableOpacity, Button } from 'react-native';
 import Color from '../constants/Color';
 import Texts from '../constants/Text';
@@ -6,10 +6,12 @@ import boulderObj from '../components/BoulderObj';
 import BoulderView from './BoulderView';
 import RouteView from './RouteView';
 import MainScreenButton from '../buttons/MainScreenButton';
+import { useNavigation } from '@react-navigation/native';
 
 
 const LogScreen = props => {
 
+    const navigation = useNavigation();
     const [boulderList, setBoulderList] = useState([]);
     const [isBoulder, setIsBoulder] = useState(false);
     const [isRoute, setIsRoute] = useState(false);
@@ -18,16 +20,24 @@ const LogScreen = props => {
         <Text> Base View </Text>
     </View>;
 
+    useEffect(() => {
+        console.log(boulderList);
+    },[boulderList])
+
     const addBoulderHandler = boulderTitle => {
         //Here we set course goals by setting course goals to a function that updates the courseGoals array.
         setBoulderList(currentBoulderList => [
           ...currentBoulderList,
-          { id: Math.random().toString(), value: boulderTitle}
-        ]
+          {id: Math.random().toString(), value: boulderTitle}]
         );
-        props.onAddBoulder(boulderList);
         console.log({boulderTitle})
     };
+    const pushBoulderHandler = () => {
+        props.onAddBoulder(boulderList);
+        setIsBoulder(false);
+        navigation.goBack();
+
+    }
 
     const boulderHandler = () => {
         setIsBoulder(true);
@@ -40,7 +50,7 @@ const LogScreen = props => {
     };
 
     if (isBoulder) {
-        content = <BoulderView onAddBoulder={addBoulderHandler}/>
+        content = <BoulderView onAddBoulder={addBoulderHandler} onPress={pushBoulderHandler}/>
     }
     else if (isRoute) {
         content = <RouteView/>
@@ -61,7 +71,7 @@ const LogScreen = props => {
 
 const styles = StyleSheet.create({
     screen: {
-        flex: 1,
+        flex:1,
         justifyContent: 'flex-start',
         alignContent: 'flex-start'
     },
@@ -73,7 +83,6 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderColor: Color.accent3,
         borderWidth: 2,
-        marginVertical:200,
         marginHorizontal:10,
         paddingHorizontal: 12,
         alignItems: 'center',

@@ -25,6 +25,9 @@ const BoulderView = props => {
             <TouchableOpacity style={styles.buttonContainer} onPress={addBoulderHandler}>
                 <Text style= {Texts.button} >Log It!</Text>
             </TouchableOpacity> 
+            <TouchableOpacity style={styles.buttonContainer} onPress={props.onPress}>
+                <Text style= {Texts.button} >Save and Return!</Text>
+            </TouchableOpacity> 
         </View>
     </View>
     );
@@ -51,7 +54,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderColor: Color.accent3,
         borderWidth: 2,
-        marginVertical:200,
+        marginVertical:10,
         marginHorizontal:10,
         paddingHorizontal: 12,
         alignItems: 'center',

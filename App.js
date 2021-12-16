@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import HomeScreen from './Screens/HomeScreen';
 import LogScreen from './Screens/LogScreen';
@@ -17,19 +17,25 @@ export default function App() {
 const Stack = createStackNavigator();
 const [usersBoulders, setUsersBoulders] = useState([]);
 
+useEffect(() => {
+  console.log(usersBoulders);
+},[usersBoulders]);
 
 const addBoulderHandler = boulderList => {
-  setUsersBoulders(currentBoulderList => [
-    ...currentBoulderList,
-    { id: Math.random().toString(), value: boulderList}
-  ],
+  setUsersBoulders((currentBoulderList) => [
+    ...currentBoulderList, ...boulderList]
   );
-  console.log({boulderList})
 }
 
 const logScreenShell = () => {
   return (
   <LogScreen onAddBoulder={addBoulderHandler}/>
+  );
+}
+
+const viewScreenShell = () => {
+  return (
+  <ViewClimbScreen boulderData={usersBoulders}/>
   );
 }
 
@@ -49,7 +55,7 @@ const logScreenShell = () => {
           />
           <Stack.Screen
             name="View Screen"
-            component={ViewClimbScreen}
+            component={viewScreenShell}
             options={{header: () => <MainHeader title={"Climbing History"}/>}}
           />
           <Stack.Screen
