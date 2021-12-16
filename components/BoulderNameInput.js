@@ -1,21 +1,17 @@
+import { useLinkProps } from '@react-navigation/native';
 import React, { useState } from 'react';
 import {View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import Color from '../constants/Color';
 
 const BoulderNameInput = props => {
     
-    const [enteredName, setEnteredName] = useState('');
-    
-    const boulderInputHandler = (enteredText) => {
-        setEnteredName(enteredText);
-    };
 
     return (
             <View style={styles.containerUpper}>   
                     <TextInput placeholder="Boulder Name" 
                     style={styles.containerTextbox}
-                    onChangeText={boulderInputHandler}
-                    value={enteredName}
+                    onChangeText={props.onChangeText}
+                    value={props.value}
                     />
             </View>
     );

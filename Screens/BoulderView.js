@@ -7,6 +7,7 @@ import BoulderNameInput from '../components/BoulderNameInput';
 import StylePicker from '../components/StylePicker';
 import HoldPicker from '../components/HoldPicker';
 import AnglePicker from '../components/AnglePicker';
+import MainScreenButton from '../buttons/MainScreenButton';
 
 const BoulderView = props => {
     
@@ -14,28 +15,50 @@ const BoulderView = props => {
     const [boulderStyle, setBoulderStyle] = useState('');
     const [boulderHold, setBoulderHold] = useState('');
     const [boulderAngle, setBoulderAngle] = useState('');
-    const [isIndoor, setIsIndoor] = useState('');
     const [isOutdoor, setIsOutdoor] = useState('');
+    const [buttonOneColor, setButtonOneColor] = useState(Color.accent2)
+    const [buttonTwoColor, setButtonTwoColor] = useState(Color.accent2)
+    const [enteredName, setEnteredName] = useState('');
+    
+    const boulderInputHandler = (enteredText) => {
+        setEnteredName(enteredText);
+    };
+
 
     const addBoulderHandler = () => {
-        props.onAddBoulder(boulderGrade, boulderStyle, boulderHold, boulderAngle);
-        console.log({boulderGrade} + "/" + {boulderStyle} + "/" + {boulderHold}+ "/" + {boulderAngle});
+        props.onAddBoulder(boulderGrade, boulderStyle, boulderHold, boulderAngle, isOutdoor, enteredName);
+        console.log({boulderGrade} + "/" + {boulderStyle} + "/" + {boulderHold}+ "/" + {boulderAngle} + {enteredName});
         setBoulderGrade('');
         setBoulderStyle('');
         setBoulderHold('');
-    }
+        setIsOutdoor('');
+    };
 
-    let content = <Text> Indoor Climb </Text>;
+    const outdoorHandler = () => {
+        setIsOutdoor(true);
+        setButtonOneColor(Color.accent2);
+        setButtonTwoColor(Color.accent3);
+    };
+
+    const indoorHandler = () => {
+        setIsOutdoor(false);
+        setButtonOneColor(Color.accent3);
+        setButtonTwoColor(Color.accent2);
+    };
+
+    let content = <View></View>;
 
     if (isOutdoor) {
-        content = <BoulderNameInput />
-    }
-    else if (isIndoor) {
-        content = <Text> Indoor Climb </Text>
+        content = <BoulderNameInput onChangeText ={boulderInputHandler} value={enteredName}/>
     }
 
     return (
     <View style={styles.screen}>
+        <View style={styles.sidebyside}>
+                <Text> Where: </Text>
+                <MainScreenButton style={{marginHorizontal: 10, backgroundColor: buttonOneColor}} title="Indoor" onPress={() => {indoorHandler()}}/>
+                <MainScreenButton style={{marginHorizontal: 10, backgroundColor: buttonTwoColor}} title="Outoor" onPress={() => {outdoorHandler()}}/>
+            </View>
         {content}
         <BoulderPicker 
             onValueChange={(value, index) => 
@@ -118,6 +141,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-start",
         alignContent: "flex-start"
+    },
+    sidebyside:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 10
     },
 });
 
