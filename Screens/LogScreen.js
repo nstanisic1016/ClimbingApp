@@ -24,13 +24,13 @@ const LogScreen = props => {
         console.log(boulderList);
     },[boulderList])
 
-    const addBoulderHandler = boulderTitle => {
+    const addBoulderHandler = (boulderGrade,boulderStyle,boulderHold,boulderAngle) => {
         //Here we set course goals by setting course goals to a function that updates the courseGoals array.
         setBoulderList(currentBoulderList => [
           ...currentBoulderList,
-          {id: Math.random().toString(), value: boulderTitle}]
+          {id: Math.random().toString(), grade: boulderGrade, style: boulderStyle, hold: boulderHold, angle: boulderAngle}]
         );
-        console.log({boulderTitle})
+        console.log({boulderGrade})
     };
     const pushBoulderHandler = () => {
         props.onAddBoulder(boulderList);

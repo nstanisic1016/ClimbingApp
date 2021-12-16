@@ -3,25 +3,69 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import Color from '../constants/Color';
 import Texts from '../constants/Text';
 import BoulderPicker from '../components/BoulderPicker';
+import BoulderNameInput from '../components/BoulderNameInput';
+import StylePicker from '../components/StylePicker';
+import HoldPicker from '../components/HoldPicker';
+import AnglePicker from '../components/AnglePicker';
 
 const BoulderView = props => {
     
     const [boulderGrade, setBoulderGrade] = useState('');
+    const [boulderStyle, setBoulderStyle] = useState('');
+    const [boulderHold, setBoulderHold] = useState('');
+    const [boulderAngle, setBoulderAngle] = useState('');
+    const [isIndoor, setIsIndoor] = useState('');
+    const [isOutdoor, setIsOutdoor] = useState('');
 
     const addBoulderHandler = () => {
-        props.onAddBoulder(boulderGrade);
-        console.log({boulderGrade});
+        props.onAddBoulder(boulderGrade, boulderStyle, boulderHold, boulderAngle);
+        console.log({boulderGrade} + "/" + {boulderStyle} + "/" + {boulderHold}+ "/" + {boulderAngle});
         setBoulderGrade('');
+        setBoulderStyle('');
+        setBoulderHold('');
     }
-    
+
+    let content = <Text> Indoor Climb </Text>;
+
+    if (isOutdoor) {
+        content = <BoulderNameInput />
+    }
+    else if (isIndoor) {
+        content = <Text> Indoor Climb </Text>
+    }
+
     return (
     <View style={styles.screen}>
-        <BoulderPicker onValueChange={(value, index) => 
-          setBoulderGrade(value)} onSelectedValue={boulderGrade}/>
+        {content}
+        <BoulderPicker 
+            onValueChange={(value, index) => 
+                setBoulderGrade(value)
+            } 
+            onSelectedValue={boulderGrade}
+        />
+        <StylePicker 
+            onValueChange={(value,index) => 
+            setBoulderStyle(value)
+        }
+            onSelectedValue={boulderStyle}
+        />
+        <HoldPicker
+            onValueChange={(value,index) => 
+            setBoulderHold(value)
+        }
+            onSelectedValue={boulderHold}
+        />
+        <AnglePicker 
+            onValueChange={(value,index) => 
+                setBoulderAngle(value)
+            }
+                onSelectedValue={boulderAngle}
+        />
         <View style={styles.textView}>
-            <Text style= {styles.headerLabels}> Style </Text>
-            <Text style= {styles.headerLabels}> Where </Text>
             <Text style= {styles.headerLabels}> Notes </Text>
+            <Text style= {styles.headerLabels}> Tick : Flash, Send </Text>
+            <Text style= {styles.headerLabels}> Attempts </Text>
+            <Text style= {styles.headerLabels}> Date </Text>
             <TouchableOpacity style={styles.buttonContainer} onPress={addBoulderHandler}>
                 <Text style= {Texts.button} >Log It!</Text>
             </TouchableOpacity> 
@@ -47,7 +91,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },  
     buttonContainer: {
-        flex: 1,
         elevation: 8,
         backgroundColor: Color.accent2,
         borderRadius: 10,

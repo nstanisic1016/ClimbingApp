@@ -9,7 +9,7 @@ const ViewClimbScreen = props => {
         data={props.boulderData} 
         renderItem={itemData => 
             <View>
-                <Text>{itemData.item.value}</Text>
+                <Text>{itemData.item.grade} {itemData.item.style} {itemData.item.hold}</Text>
             </View>
         }
         />
